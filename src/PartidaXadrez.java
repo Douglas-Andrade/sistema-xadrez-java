@@ -1,9 +1,11 @@
+import java.awt.Color;
 
 public class PartidaXadrez {
 	private Tabuleiro tabuleiro;
 	
 	public PartidaXadrez () {
 		tabuleiro = new Tabuleiro (8,8);
+		configuracaoInicial ();
 	}
 	
 	public PecaXadrez [][] getPecas() {
@@ -15,4 +17,10 @@ public class PartidaXadrez {
 		}
 		return matriz;	
 	}
+	
+	private void configuracaoInicial () {
+		tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.WHITE), new Posicao (2,1));
+		tabuleiro.colocarPeca(new Rei(tabuleiro, Cor.BLACK), new Posicao (0,4));
+		tabuleiro.colocarPeca(new Rei(tabuleiro, Cor.WHITE), new Posicao (7,4));
+	}	
 }
